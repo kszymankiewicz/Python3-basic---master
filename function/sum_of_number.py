@@ -23,14 +23,19 @@ def finish_timer(start):
     end = time.perf_counter()
     return end-start
 
-def function_performance(func,arg):
-    start = time.perf_counter()
-    func(arg)
-    end = time.perf_counter()
-    return end-start
 
-print(function_performance(sum_to,500000))
-print(function_performance(sum_to2,500000))
-print(function_performance(sum_to3,500000))
-print(function_performance(sum_to4,500000))
-print(function_performance(sum_to5,500000))
+def function_performance(func,arg, how_many_time = 1):
+    sum=0
+    for i in range(0,how_many_time):
+        start = time.perf_counter()
+        func(arg)
+        end = time.perf_counter()
+        sum = sum + (end-start) 
+    return sum
+
+
+print(function_performance(sum_to,500000,25))
+print(function_performance(sum_to2,500000,25))
+print(function_performance(sum_to3,500000,25))
+print(function_performance(sum_to4,500000,25))
+print(function_performance(sum_to5,500000,25))
