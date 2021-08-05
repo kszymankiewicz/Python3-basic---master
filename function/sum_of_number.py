@@ -22,23 +22,15 @@ def sum_to5(number):
 def finish_timer(start):
     end = time.perf_counter()
     return end-start
-    
-start = time.perf_counter()
-print(sum_to(25555))
-print(finish_timer(start))
 
-start = time.perf_counter()
-print(sum_to2(25555))
-print(finish_timer(start))
+def function_performance(func,arg):
+    start = time.perf_counter()
+    func(arg)
+    end = time.perf_counter()
+    return end-start
 
-start = time.perf_counter()
-print(sum_to3(25555))
-print(finish_timer(start))
-
-start = time.perf_counter()
-print(sum_to4(25555))
-print(finish_timer(start))
-
-start = time.perf_counter()
-print(sum_to5(25555))
-print(finish_timer(start))
+print(function_performance(sum_to,500000))
+print(function_performance(sum_to2,500000))
+print(function_performance(sum_to3,500000))
+print(function_performance(sum_to4,500000))
+print(function_performance(sum_to5,500000))
